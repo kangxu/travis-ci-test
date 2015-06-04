@@ -38,7 +38,8 @@ Authors:
 <script src="../resources/testharnessreport.js"></script>
 <div id="log"></div>
 <script>
-test(function () {      
+test(function () {
+  var taskScheduler = navigator.taskScheduler || xwalk.experimental.taskScheduler;   
   var taskScheduler = navigator.taskScheduler || xwalk.experimental.taskScheduler;
   assert_not_equals(taskScheduler, null, "The Navigator taskScheduler attribute");
 }, "Check if the Navigator taskScheduler attribute must not be null.")
