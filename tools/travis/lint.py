@@ -34,7 +34,8 @@ import re
 import os.path
 import commands
 
-Repo_Root = os.path.dirname(os.path.abspath(__file__))
+Lint_Root = os.path.dirname(os.path.abspath(__file__))
+Repo_Root = os.path.dirname(os.path.dirname(Lint_Root))
 ERRORS = []
 
 def outputErrors():
