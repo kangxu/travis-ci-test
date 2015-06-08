@@ -21,10 +21,9 @@ def git(cmd):
 def filterUpdatedFiles(gitoutput):
     updatedFiles = []
     for line in gitoutput.split("\n"):
-        line = line.strip()
         status = line.split("\t")
         if status[0].strip() != "D":
-          updatedFiles.append(status[-1].strip())
+          updatedFiles.append(status[-1])
     return updatedFiles
 
 def checkTailSpace(filepath):
