@@ -30,7 +30,10 @@ def filterUpdatedFiles(gitoutput):
 def checkTailSpace(filepath):
     with open(filepath) as f:
         for line in f:
-            if not re.compile(" $").search(line):
+            if re.compile("^$").search(line):
+                continue
+
+            if re.compile(" $").search(line):
                 bname = os.path.basename(filepath)
                 error = ["TAILING WHILTESPACE", bname]
                 ERRORS.append(error)
@@ -38,7 +41,8 @@ def checkTailSpace(filepath):
 
 def checkFileNameSpace(filepath):
     bname = os.path.basename(filepath)
-    if not re.compile(" ").search(bname):
+    if re.compile(" ").search(bname):
+        print bname
         error = ["FILENAME WHILTESPACE", bname]
         ERRORS.append(error)
         return
